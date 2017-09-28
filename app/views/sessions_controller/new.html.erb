@@ -1,0 +1,15 @@
+<h1> Sing in </h1>
+<%= form_for :session, url: sing_in_path, method: :post do |f|%>
+
+  <div class="row">
+    <div class="form-group col-sm-5">
+      <%= f.label :email %><br>
+      <%= f.email_field :email %><br>
+    </div>
+    <div class="form-group col-sm-5">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %><br>
+    </div>
+  </div>
+  <%= f.submit "login", class: "btn btn-primary" %>
+<% end %>
