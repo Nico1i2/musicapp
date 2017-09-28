@@ -10,7 +10,7 @@ module SharedHelper
 
   def authenticate_user!
     if !user_signed_in?
-      flash[:error] = "Unauthorized. Login first carechimba."
+      flash[:error] = "Invalid credentials - Try Again ."
       redirect_to new_session_path
     end
   end
