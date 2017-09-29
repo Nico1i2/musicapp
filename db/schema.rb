@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(version: 20170927025153) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "type"
+    t.string "gov_id"
+    t.string "name"
     t.string "email"
-    t.string "password"
-    t.string "user_name"
-    t.string "gender"
-    t.string "birth_date"
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
