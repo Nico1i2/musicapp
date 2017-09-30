@@ -1896,3 +1896,1846 @@ ActionView::Template::Error (No route matches {:action=>"show", :controller=>"mu
     5: <%= link_to "Settings", settings_sessions_path %><br>
   
 app/views/sessions/main.html.erb:3:in `_app_views_sessions_main_html_erb___402346115786579789_70190136962720'
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 19:41:27 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (105.0ms)
+  [1m[36mUser Load (15.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 525ms (Views: 490.8ms | ActiveRecord: 16.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (40.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "user@name.com"], ["password_digest", "$2a$10$D9tQUsGey7K2le6mZZuOWe8hVXZfRXLNEQoTWbD26DiT5bGJBuh5G"], ["created_at", "2017-09-30 00:42:31.597340"], ["updated_at", "2017-09-30 00:42:31.597340"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/sessions" for 127.0.0.1 at 2017-09-29 19:42:42 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o/uGthqu6XutzHDpKzO3cVlUddYZ0ayyMi7zIGWqv4J+Db08R+tVztleyhiXiJEjycWu4RQd+onakivU3oa+TA==", "session"=>{"email"=>"user@name.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@name.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/main
+Completed 302 Found in 93ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:42:42 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"musicapp"}, missing required keys: [:id]):
+    1: <h1>Music App MAIN <%= current_user.email %> </h1>
+    2: 
+    3: <%= link_to "Playlist", musicapp_path %><br>
+    4: <%= link_to "Add new", new_musicapp_path %><br>
+    5: <%= link_to "Settings", settings_sessions_path %><br>
+  
+app/views/sessions/main.html.erb:3:in `_app_views_sessions_main_html_erb__1856878509310855447_70100385988940'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:44:30 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 19:44:35 -0500
+Processing by MusicappController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant MusicappController::Musicapp):
+  
+app/controllers/musicapp_controller.rb:3:in `index'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:44:37 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-09-29 19:45:47 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3dYSJubCe9EDZ3SP2iGeE55ytf7x7rO8ZSRf/21Q2soAICmsu4fHZHf1zn5mmrhBDuNuyfwi5YeNmIcL1nzbBA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007f8304759868>
+Did you mean?  try):
+  
+app/controllers/sessions_controller.rb:22:in `destroy'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:51:13 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 34ms (Views: 18.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 19:51:15 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 19:53:18 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-09-29 19:53:28 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zzLR3xtm1muFG3IvVxndETl7tyMnLgSvo0vwQIhp5qsSxOpVRiNq3vGJyN7rovtDqepsFCriUpRL9yi0M0XnZQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007f83091f29d8>
+Did you mean?  try):
+  
+app/controllers/sessions_controller.rb:22:in `destroy'
+Started DELETE "/sessions" for 127.0.0.1 at 2017-09-29 19:53:43 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zzLR3xtm1muFG3IvVxndETl7tyMnLgSvo0vwQIhp5qsSxOpVRiNq3vGJyN7rovtDqepsFCriUpRL9yi0M0XnZQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 19:53:43 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-09-29 19:53:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/PAHJpQu3DuG7lrKYeT2vwrQcxflnU+objOufVJgGiAhBjysyWtgjvJ84DvdX9DtmkGoIOhRGZOGj3aJ6Uwb7g==", "session"=>{"email"=>"user@name.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@name.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/main
+Completed 302 Found in 74ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:53:52 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 19:56:37 -0500
+Processing by MusicappController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant MusicappController::Musicapp):
+  
+app/controllers/musicapp_controller.rb:3:in `index'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:56:39 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 19:56:42 -0500
+Processing by MusicappController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant MusicappController::Musicapp):
+  
+app/controllers/musicapp_controller.rb:11:in `new'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:56:45 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 19:56:48 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 19:57:05 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 19:57:29 -0500
+Processing by MusicappController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant MusicappController::Musicapp):
+  
+app/controllers/musicapp_controller.rb:3:in `index'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 19:57:34 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 19:58:58 -0500
+Processing by MusicappController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant MusicappController::Musicapp):
+  
+app/controllers/musicapp_controller.rb:3:in `index'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 20:00:03 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 17.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:00:04 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 66ms (Views: 17.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:00:08 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 20:00:10 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:00:16 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:00:18 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 20:00:20 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/sessions" for 127.0.0.1 at 2017-09-29 20:00:23 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"awdOVuG35Z1nrlXoqwPkdZDlToyRrXaP5DBNdU9YUhK28XXcvPJZKBM87xkXuMInAHSVu5xhILQMjJWB9HRT3A=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 20:00:23 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-09-29 20:00:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"we/I8V8D968srYxqoRftT+bvQLfij19THkTv9lgR6HwcGfN7AkZLGlg/NpsdrMsddn6bgO9DCWj2+DcC4z3psg==", "session"=>{"email"=>"user@name.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@name.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/main
+Completed 302 Found in 73ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 20:00:28 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:00:53 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:01:02 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:09:35 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:14:00 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:14:31 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376455340'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:17:09 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 7ms
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100377083480'
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 20:20:43 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 17.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:20:45 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:20:47 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (91.8ms)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f830808b528>:0x007f83093d0e08>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100386221140'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:22:51 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (96.3ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f830808b528>:0x007f8303d58ff8>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100340888680'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:30:27 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (96.1ms)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f83098ab220>:0x007f83098a9178>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100388765120'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:30:50 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (119.1ms)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f830806acb0>:0x007f8308068320>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376051120'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:37:19 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (86.7ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f830806acb0>:0x007f83082685a8>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100377094220'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:37:22 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (84.0ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `playlists_path' for #<#<Class:0x007f830806acb0>:0x007f8308072848>):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376066740'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:37:34 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"musicapp"}, missing required keys: [:id]):
+    1: <h1>Addnew</h1>
+    2: 
+    3: <%= form_for @musicapp , url: musicapp_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+  
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100354539280'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:38:15 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f83098da4f8>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100388847000'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100388847000'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:38:16 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f8309398468>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100386092720'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100386092720'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:38:17 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f83098d02f0>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100388824680'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100388824680'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:38:17 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f830a8e05f0>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100397250660'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100397250660'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:47:54 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f8303f53330>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100341541740'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100341541740'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:49:15 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f8303abc1c8>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100397153420'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100397153420'
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 20:52:43 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-09-29 20:52:48 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R2MlH1xQwfdxKp8IZYoLXUZ9RixpkGl5ZBLpftDA7vKalR6VARV9QgW4JfnZMS0P1uydG2RcP0KMrjGKa+zvPA==", "session"=>{"email"=>"user@name.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@name.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/main
+Completed 302 Found in 74ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/main" for 127.0.0.1 at 2017-09-29 20:52:48 -0500
+Processing by SessionsController#main as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/main.html.erb within layouts/application
+  Rendered sessions/main.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 20:52:50 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/settings" for 127.0.0.1 at 2017-09-29 20:52:52 -0500
+Processing by SessionsController#settings as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/settings.html.erb within layouts/application
+  Rendered sessions/settings.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:52:57 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f83091508e0>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100384893580'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100384893580'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20170927024254)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar, "gov_id" varchar, "name" varchar, "email" varchar, "password_digest" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170927024254"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlaylists (20170927024402)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_name" varchar, "song" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170927024402"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSongs (20170927024605)
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:53:49 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f830a849f60>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100396950040'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100396950040'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:58:21 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f830811a958>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100376406060'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376406060'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSongs (20170927024605)
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 20:58:33 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f83098a0618>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100388713220'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100388713220'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:03:34 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f8309280008>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100354075560'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100354075560'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:03:45 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f830917bc98>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100384979200'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100384979200'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:04:23 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `song' for #<Playlist:0x007f830a880a10>):
+    3: <%= form_for @musicapp , url: musicapp_index_path do |f| %>
+    4: 
+    5:   <%= f.label :song %><br>
+    6:   <%= f.text_field :song %><br>
+    7:   <%= f.label :artist %><br>
+    8:   <%= f.text_field :artist %><br>
+    9:   <%= f.label :album %><br>
+  
+app/views/musicapp/new.html.erb:6:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100397052960'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100397052960'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:06:39 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f83098f04b0>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100388648720'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100388648720'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:07:40 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f8303fee8f8>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100342237720'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100342237720'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:08:22 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f83057b1ff8>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100376898460'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376898460'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:09:27 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f83054a8898>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100340639820'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100340639820'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:09:30 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f8303f3bbb8>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100341854080'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100341854080'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:12:21 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f8308221b58>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100376738820'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376738820'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:15:37 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f83092707c0>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100342117160'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100342117160'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:16:27 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f83083bcaf8>
+Did you mean?  artists
+               artists=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100377236500'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100377236500'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:16:41 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `artist' for #<Playlist:0x007f8309aac218>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :artist %><br>
+     8:   <%= f.text_field :artist %><br>
+     9:   <%= f.label :album %><br>
+    10:   <%= f.text_field :album %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100342142880'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100342142880'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:17:20 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309c8fe90>
+Did you mean?  albums
+               albums=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100390802660'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100390802660'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:17:37 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8308128a30>
+Did you mean?  albums
+               albums=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100376175020'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100376175020'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:17:56 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f830b9b4570>
+Did you mean?  albums
+               albums=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100405876180'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100405876180'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:18:16 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f830981ae78>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100342102400'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100342102400'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:19:30 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f83085f5fe0>
+Did you mean?  albums
+               albums=):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100378788120'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100378788120'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:22:07 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309e4d0c0>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100391541740'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100391541740'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:22:29 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f830838a328>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100377683760'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100377683760'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:25:42 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309cbef88>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100390899040'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100390899040'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:25:44 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f83057bb878>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100354712620'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100354712620'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:25:44 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309b59260>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100390157980'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100390157980'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:25:44 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309a01c00>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100389462480'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100389462480'
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:01 -0500
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:03 -0500
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:04 -0500
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:07 -0500
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:11 -0500
+Started PUT "/__web_console/repl_sessions/72c13ec58de07ce4530c9024937ea764" for 127.0.0.1 at 2017-09-29 21:26:17 -0500
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:26:33 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8308636bd0>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100378876540'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100378876540'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:26:35 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f83052e23d8>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100352124480'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100352124480'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:26:35 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f830831e998>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100377463360'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100377463360'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:26:35 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:26:36 -0500
+  
+Processing by MusicappController#new as HTML
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309d8c4d8>):
+  Rendering musicapp/new.html.erb within layouts/application
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  Rendered musicapp/new.html.erb within layouts/application (7.0ms)
+  
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100391311360'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100391311360'
+  
+ActionView::Template::Error (undefined method `album' for #<Playlist:0x007f8309cee530>):
+     5:   <%= f.label :song %><br>
+     6:   <%= f.text_field :song %><br>
+     7:   <%= f.label :album %><br>
+     8:   <%= f.text_field :album %><br>
+     9:   <%= f.label :artist %><br>
+    10:   <%= f.text_field :artist %><br>
+    11:   <%= f.submit %>
+  
+app/views/musicapp/new.html.erb:8:in `block in _app_views_musicapp_new_html_erb__3020457682374859224_70100390996000'
+app/views/musicapp/new.html.erb:3:in `_app_views_musicapp_new_html_erb__3020457682374859224_70100390996000'
+Started GET "/musicapp/new" for 127.0.0.1 at 2017-09-29 21:31:36 -0500
+Processing by MusicappController#new as HTML
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 21.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:31:44 -0500
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for MusicappController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:34:15 -0500
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for MusicappController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:36:53 -0500
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for MusicappController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:37:00 -0500
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for MusicappController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:39:17 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 4ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:40:07 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 3ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:41:11 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 3ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:42:22 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 4ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:42:32 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 1ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:43:01 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 3ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:43:23 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 500 Internal Server Error in 138ms
+
+
+  
+NameError (undefined local variable or method `musicapp_params' for #<MusicappController:0x007f8309bd7110>
+Did you mean?  musicapp_path):
+  
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:44:08 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 3ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:44:25 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+Completed 400 Bad Request in 1ms
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: musicapp):
+  
+app/controllers/musicapp_controller.rb:26:in `musicapp_params'
+app/controllers/musicapp_controller.rb:15:in `create'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:44:48 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 87ms (Views: 21.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:44:51 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TcZxdPO0k426rCTLSVG3qoebvuglpbW5jb6STlQRzBqQMEr+rvEvOM4+njr16pH4Fwpl3yhp44JlAkq67z3N1A==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:44:53 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0vgpAIXoe8DpW+AMWfGI7zZ1OW+n3N2rGRrthtXLB6sPDhKK2K3HdZ3JWv3lSq69puTiWKoQi5DxpjVybucGZQ==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 21:45:33 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 13ms
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>Playlist</h1>
+    2: <% @playlists.each do |playlist|%>
+    3: 
+    4: <% end %>
+  
+app/views/musicapp/index.html.erb:2:in `_app_views_musicapp_index_html_erb__2898025209084305917_70100388905840'
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:46:42 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dKav7nPFbt22/9MHhR9VDSBAd+xI3kSsFEx/kv/UnAypUJRkLoDSaMJtafY5pHNfsNGs20USEpf88KdmRPidwg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 20.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:46:44 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qe7gP1AvYTdyI7Nw4woELzsPSK0mBAPCAFip546IVnmcGNu1DWrdggaxCYFfsSJ9q56TmivIVfno5HETNaRXtw==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:46:46 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+XMhX6C2R5/wTguz8FZR1vQvc97KWysjbXzY7r0BJZEkhRrV/fP7KoTcsUJM7XeEZL6o6ceXfRiFwAAaBi0kXw==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:47:07 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2Zpj/P2KaZ2ryIP7n0F2VWlRcZKuoi56MzQb2QDAZJEEbFh2oM/VKN9aOQoj+lAH+cCqpaNueEHbiMMtu+xlXw==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 19.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:47:09 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"r8WpDHGqdlGACaSWh2L/9HcG1T36KItcV1MlJcx3a5JyM5KGLO/K5PSbHmc72dmm55cOCvfk3We/7/3Rd1tqXA==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:47:13 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mi0Y7sIazanI+XcZoUXUr0H3CGbIzZn1KqKr2ABug95H2yNkn19xHLxrzegd/vL90WbTUcUBz87CHnMsu0KCEA==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:47:26 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fRkXwXy5uf9QxzMLyj6ARJvOqPUzWcOKwp8wI5SIHXCg7yxLIfwFSiRVifp2haYWC19zwj6VlbEqI+jXL6Qcvg==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:48:22 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wMWjt/pKoqhqvLhT41zh6cXDB1V9H5I0tZKuh5soeVEdM5g9pw8eHR4uAqJf58e7VVLcYnDTxA9dLnZzIAR4nw==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:49:28 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZLqx0TlqRRdB11vL+d58eYFvC/JGKGu8ka3nq5hlJ/q5TIpbZC/5ojVF4TpFZVorEf7QxUvkPYd5ET9fI0kmNA==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering musicapp/new.html.erb within layouts/application
+  Rendered musicapp/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 29.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/musicapp" for 127.0.0.1 at 2017-09-29 21:49:54 -0500
+Processing by MusicappController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u9cVxfc24R833+dp8jLfIc1rLKxjakoes8Zhdl6KBYdmIS5PqnNdqkNNXZhOiflzXfr3m26mHCVbermC5aYESQ==", "playlist"=>{"playlist_name"=>"punk"}, "commit"=>"Create Playlist"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "playlists" ("playlist_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["playlist_name", "punk"], ["created_at", "2017-09-30 02:49:54.094139"], ["updated_at", "2017-09-30 02:49:54.094139"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/musicapp/1
+Completed 302 Found in 14ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/musicapp/1" for 127.0.0.1 at 2017-09-29 21:49:54 -0500
+Processing by MusicappController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1m[34mSELECT  "playlists".* FROM "playlists" WHERE "playlists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering musicapp/show.html.erb within layouts/application
+  Rendered musicapp/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 21:57:09 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/musicapp" for 127.0.0.1 at 2017-09-29 21:57:14 -0500
+Processing by MusicappController#index as HTML
+  Rendering musicapp/index.html.erb within layouts/application
+  Rendered musicapp/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 21:57:24 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-09-29 21:57:29 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GxLaqECq3ltLDGThzpUPOhWykI2gcyLNemNo5A5b2MrG5OEiHe9i7j+e3hByLilohSNLuq2/dPaS37AQtXfZBA==", "session"=>{"email"=>"user@name.com", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@name.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2017-09-29 21:57:29 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.1ms)
+
+

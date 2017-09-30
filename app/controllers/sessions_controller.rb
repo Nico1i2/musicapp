@@ -19,13 +19,15 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     session.delete(:user_id)
     flash[:success] = "Logout successfully"
     redirect_to new_session_path
   end
 
   def main
+  end
+
+  def settings
   end
 
   private

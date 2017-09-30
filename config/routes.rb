@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :musicapp
 
+
+  get "/sessions/settings" => "sessions#settings", as: :settings
+
+
   get "/sessions/new" => "sessions#new", as: :new_session
   post "/sessions" => "sessions#create", as: :sign_in
   get "/sessions/main" => "sessions#main", as: :main

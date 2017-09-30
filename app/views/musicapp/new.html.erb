@@ -1,1 +1,8 @@
 <h1>Addnew</h1>
+
+<%= form_for @musicapp , url: musicapp_index_path do |f| %>
+
+  <%= f.label :playlist_name %><br>
+  <%= f.text_field :playlist_name %><br>
+  <%= f.submit %>
+<% end %>
